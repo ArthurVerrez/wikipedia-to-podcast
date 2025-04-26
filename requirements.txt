@@ -1,1 +1,4 @@
 wikipedia==1.4.0
+google-genai
+python-dotenv
+litellm
