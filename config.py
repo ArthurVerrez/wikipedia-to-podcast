@@ -21,3 +21,27 @@ Instructions:
 - Do not add any Music timing, or any non speaking elements, EVERYTHING you say will be said"""
 
 REASONING_EFFORT = "high"  # low/medium/high
+
+# Text-to-Speech Configuration
+TTS_MODEL = "gpt-4o-mini-tts"  # Example: "tts-1", "tts-1-hd", "gpt-4o-mini-tts"
+TTS_VOICE = "alloy"  # Example: "alloy", "echo", "fable", "onyx", "nova", "shimmer"
+TTS_INSTRUCTIONS = """Content Style:
+Concise yet vivid storytelling that captures the essence of the topic without overwhelming the listener with excessive details.
+
+Structure:
+Clear, logical progression: engaging introduction → accessible explanation of main points → interesting anecdotes or surprising facts → satisfying, short conclusion.
+
+Tone:
+Enthusiastic, curious, and slightly informal — speaking to the listener, not at them. Balances being educational with being entertaining.
+
+Language:
+Simple, vivid, and visual. Avoids technical jargon unless explained immediately in plain terms. Sentences are short to medium length, varied to maintain rhythm and prevent monotony.
+
+Phrasing:
+Uses rhetorical questions, light metaphors, and relatable comparisons to help the listener intuitively understand complex ideas without feeling lectured.
+
+Focus:
+Highlights why the topic matters or is interesting, not just what it is. Prioritizes building curiosity and wonder over encyclopedic completeness."""
+TTS_RESPONSE_FORMAT = "mp3"  # Example: "mp3", "opus", "aac", "flac", "wav", "pcm"
+AUDIO_OUTPUT_DIR = "output/audio"  # Directory to save generated audio files
+TTS_OUTPUT_BITRATE = "192k"  # Bitrate for exported MP3 files

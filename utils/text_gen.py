@@ -12,7 +12,7 @@ class GenerationResponse:
     estimated_cost_usd: float
 
 
-def generate(input_text: str) -> GenerationResponse:
+def generate_text(input_text: str) -> GenerationResponse:
     response = completion(
         model=MODEL,
         messages=[
