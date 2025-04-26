@@ -91,9 +91,18 @@ def main():
     if not markdown_output_path:
         # Default filename based on audio output
         base_name, _ = os.path.splitext(args.output_filename)
-        markdown_output_path = f"{base_name}.md"
+        # Prepend the output directory to the default markdown filename
+        markdown_output_path = os.path.join(AUDIO_OUTPUT_DIR, f"{base_name}.md")
+    else:
+        # If a path was provided, ensure it's placed in the output dir as well
+        # (or decide if an absolute path should override this)
+        # For simplicity, let's assume relative paths should go into AUDIO_OUTPUT_DIR
+        if not os.path.isabs(markdown_output_path):
+            markdown_output_path = os.path.join(AUDIO_OUTPUT_DIR, markdown_output_path)
 
     try:
+        # Ensure the directory exists (might be redundant if audio step already did)
+        os.makedirs(os.path.dirname(markdown_output_path), exist_ok=True)
         with open(markdown_output_path, "w", encoding="utf-8") as md_file:
             md_file.write(podcast_script)
         logging.info(f"Podcast script saved to markdown file: {markdown_output_path}")
