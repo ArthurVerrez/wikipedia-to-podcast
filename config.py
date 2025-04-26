@@ -18,7 +18,8 @@ Instructions:
 - No reference to Wikipedia, markdown, or the formatting itself.
 - Speak in a warm, confident, slightly witty tone if appropriate.
 - End the overview with a short, conclusive wrap-up.
-- Do not add any Music timing, or any non speaking elements, EVERYTHING you say will be said"""
+- Do not add any Music timing, or any non speaking elements, EVERYTHING you say will be said
+- Do not add anything like (Intro Music) or (Outro Music), or anything like that, EVERYTHING will be just said"""
 
 REASONING_EFFORT = "high"  # low/medium/high
 

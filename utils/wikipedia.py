@@ -1,5 +1,6 @@
 import wikipedia
 import re
+import logging
 from typing import Optional, Tuple
 
 
@@ -18,7 +19,7 @@ def get_wikipedia_page_as_markdown(query: str) -> Optional[Tuple[str, str]]:
     try:
         search_results = wikipedia.search(query)
         if not search_results:
-            print(f"No Wikipedia pages found for query: {query}")
+            logging.warning(f"No Wikipedia pages found for query: {query}")
             return None
 
         # Take the first search result
@@ -29,16 +30,18 @@ def get_wikipedia_page_as_markdown(query: str) -> Optional[Tuple[str, str]]:
 
     except wikipedia.exceptions.DisambiguationError as e:
         # This might happen if the query itself is ambiguous
-        print(f"Disambiguation error for query '{query}'. Options: {e.options}")
+        logging.warning(
+            f"Disambiguation error for query '{query}'. Options: {e.options}"
+        )
         return None
     except wikipedia.exceptions.PageError:
         # This might happen if the title from search results doesn't resolve correctly
-        print(
+        logging.warning(
             f"PageError: Could not find a page for '{page_title}' derived from query '{query}'."
         )
         return None
     except Exception as e:  # Catch other potential errors (network, etc.)
-        print(f"An unexpected error occurred during Wikipedia fetch: {e}")
+        logging.error(f"An unexpected error occurred during Wikipedia fetch: {e}")
         return None
 
     # Start markdown with the definitive page title
