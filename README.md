@@ -34,7 +34,7 @@ A simple Python tool to fetch a Wikipedia page, generate a podcast-style script 
 
 3.  **Configure API Keys:**
 
-    - The tool uses **OpenAI** for Text-to-Speech (TTS) and **LiteLLM** for Text Generation. By default, LiteLLM is configured to use a **Gemini** model (`gemini/gemini-1.5-flash-latest`), which is recommended for its strong performance and cost-effectiveness, especially with long Wikipedia articles.
+    - The tool uses **OpenAI** for Text-to-Speech (TTS) and **LiteLLM** for Text Generation. By default, LiteLLM is configured to use a **Gemini** model (`gemini/gemini-2.5-flash-preview-04-17`), which is recommended for its strong performance and cost-effectiveness, especially with long Wikipedia articles.
     - You will need API keys for the services you use.
 
     - **OpenAI API Key (for TTS):**
@@ -63,8 +63,6 @@ A simple Python tool to fetch a Wikipedia page, generate a podcast-style script 
     - **Other Models (via LiteLLM):**
 
       - If you configure `config.py` to use a different model via LiteLLM (e.g., Anthropic Claude), you will need to set the corresponding API key (e.g., `ANTHROPIC_API_KEY`). Refer to the [LiteLLM documentation](https://docs.litellm.ai/docs/providers) for required environment variables.
-
-    - _(Ensure `.env` is added to your `.gitignore`)_
 
 4.  **(Optional) Customize Configuration:**
     - Edit `config.py` to change the text generation model (`MODEL`), TTS model (`TTS_MODEL`), voice (`TTS_VOICE`), system prompt (`SYSTEM_PROMPT`), etc. See comments in the file for options.
